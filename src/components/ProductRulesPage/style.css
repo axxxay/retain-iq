@@ -1,0 +1,19 @@
+styles.css
+.table-container {
+    overflow-x: auto;  /* Enable horizontal scroll for the container */
+  }
+  
+  .product-rules-table {
+    table-layout: fixed; /* Ensure consistent column widths */
+    width: auto;         /* Allow the table to expand to fit the content */
+    min-width: 100%;     /* Minimum width to prevent content from wrapping */
+  }
+  
+  .product-rules-table th:nth-child(-n+2), 
+  .product-rules-table td:nth-child(-n+2) {
+    position: sticky;  /* Fix the first two columns to the left */
+    left: 0;
+    background-color: white; /* Optional: Set background for fixed columns */
+    z-index: 1;         /* Optional: Ensure fixed columns stay on top */
+  }
+  

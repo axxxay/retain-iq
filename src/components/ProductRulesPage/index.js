@@ -126,18 +126,18 @@ function ProductRulesPage() {
 
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
-          <div className="overflow-x-auto flex-wrap my-[4%] mx-[5%] w-[90%] scroll-m-0 product-rules-table">
-            <table className="border-[1px] border-[#d0d0d0] p-[30px] rounded-xl border-separate border-spacing-0 w-[100%]">
+          <div className="overflow-x-auto flex-wrap my-[6%] md:my-[4%] mx-[5%] w-[90%] scroll-m-0 product-rules-table">
+            <table className="border-[1px] border-[#d0d0d0] p-[15px] md:p-[30px] rounded-xl border-separate border-spacing-0 w-[100%]">
                 <thead>
                     <tr>
-                        <th className='py-[20px] text-[#6B757E] font-[500] w-[80px] max-w-[80px]'></th>
-                        <th className='py-[20px] text-[#6B757E] font-[500] w-[400px] max-w-[400px] text-[14px]'>Product Filter</th>
+                        <th className='py-[10px] md:py-[20px] text-[#6B757E] font-[500] w-[40px] max-w-[40px] md:w-[80px] md:max-w-[80px]'></th>
+                        <th className='py-[10px] md:py-[20px] text-[#6B757E] font-[500] w-[200px] md:w-[400px] max-w-[200px] md:max-w-[400px] text-[13px] md:text-[14px]'>Product Filter</th>
                         {columns.map((column) => (
-                            <th key={column.key} className='py-[20px] text-[#6B757E] w-[210px] max-w-[210px] font-[500] text-[14px]'>
-                                <div className='w-[170px] mx-auto flex flex-row items-center justify-between' title="Delete Column">
+                            <th key={column.key} className='py-[10px] md:py-[20px] text-[#6B757E] w-[110px] md:w-[210px] max-w-[110px] md:max-w-[210px] font-[500] text-[13px] md:text-[14px]'>
+                                <div className='w-[90px] md:w-[170px] mx-auto flex flex-row items-center justify-between' title="Delete Column">
                                     <span>{column.label}</span>
                                     <BsThreeDotsVertical
-                                        className='text-[#6B757E] text-[20px] cursor-pointer w-[25px] p-[2px] h-[25px] rounded-[50%] hover:bg-[#c3c8cc]'
+                                        className='text-[#6B757E] text-[14px] md:text-[20px] cursor-pointer w-[20px] md:w-[25px] p-[2px] h-[20px] md:h-[25px] rounded-[50%] hover:bg-[#c3c8cc]'
                                         onClick={() => deleteColumn(column.key)}
                                     />
                                 </div>
@@ -175,8 +175,8 @@ function ProductRulesPage() {
                 <tfoot>
                     <tr>
                         <td className="border-r-[1px]">
-                            <button className='p-[10px] rounded-md border-[1px] border-[#d0d0d0] flex items-center justify-center hover:bg-blue-50 ml-3' onClick={addRow}>
-                                <FaPlus className='text-black text-[16px]' />
+                            <button className='p-[8px] md:p-[10px] rounded-md border-[1px] border-[#d0d0d0] flex items-center justify-center hover:bg-blue-50 ml-0 mr-3 md:mr-0 md:ml-3' onClick={addRow}>
+                                <FaPlus className='text-black text-[13px] md:text-[16px]' />
                             </button>
                         </td>
                     </tr>

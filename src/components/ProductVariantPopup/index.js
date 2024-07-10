@@ -37,20 +37,20 @@ export const ProductVariantPopup = ({ selectedRow, selectedColumn, closePopup, c
     <>
       <div className='fixed top-0 left-0 w-[100%] h-[100vh] bg-black bg-opacity-75 z-0'></div>
       <div className='fixed top-0 left-0 w-[100%] h-[100vh] flex items-center justify-center'>
-          <div className='relative min-w-[500px] max-w-[600px] w-[100%] h-[500px] bg-white rounded-lg  z-[10]'>
-            <div className="p-[20px] border-b-[1px]">
+          <div className='relative min-w-[95%] md:min-w-[500px] max-w-[95%] md:max-w-[600px] w-[100%] h-[500px] bg-white rounded-lg  z-[10]'>
+            <div className="p-[10px] md:p-[20px] border-b-[1px]">
               <button className='absolute right-4 top-2 text-[20px] font-[500] text-[#6B757E]' onClick={closePopup}>&times;</button>
-              <IoImageOutline className='text-[#0BAB62] text-[28px] my-[20px] mx-[20px]' />
-              <div className='flex items-center justify-between'>
-                  <h2 className='text-[17px] font-[500]'>Select a design to link</h2>
-                  <div className='flex items-center w-[200px] h-[36px] border-[2px] border-[#A3B1DD] rounded-[5px]'>
-                    <RiSearchLine className='text-[#6B757E] text-[25px] mx-2' />
-                    <input type='text' className='w-[100%] h-[100%] border-[0px] rounded-[5px] text-[14px] outline-none' placeholder='Search' onChange={handleSearch} value={searchInput} />
+              <IoImageOutline className='text-[#0BAB62] text-[20px] md:text-[28px] my-[10px] md:my-[20px] mx-[10px] md:mx-[20px]' />
+              <div className='flex items-center justify-between flex-col md:flex-row mb-2 md:mb-0'>
+                  <h2 className='text-[15px] md:text-[17px] mb-2 md:mb-0 font-[500]'>Select a design to link</h2>
+                  <div className='flex items-center w-[200px] h-[32px] md:h-[36px] border-[2px] border-[#A3B1DD] rounded-[5px]'>
+                    <RiSearchLine className='text-[#6B757E] text-[20px] md:text-[25px] mx-2' />
+                    <input type='search' className='w-[100%] pr-1 h-[100%] border-[0px] rounded-[5px] text-[13px] md:text-[14px] outline-none' placeholder='Search' onChange={handleSearch} value={searchInput} />
                   </div>
               </div>
             </div>
-            <div className="overflow-y-auto h-[335px] mt-[20px]">
-              <ul className='flex flex-wrap justify-between px-[20px] items-start'>
+            <div className="overflow-y-auto h-[348px] md:h-[335px] mt-[20px]">
+              <ul className='flex flex-wrap justify-between px-[10px] md:px-[20px] items-start'>
                   {filteredImages.map((image, index) => (
                     <VariantItem key={index} image={image} changeVariant={changeVariant} selectedRow={selectedRow} selectedColumn={selectedColumn} />
                   ))}

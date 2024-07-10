@@ -35,7 +35,7 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
                 </div>
             </td>
             <td>
-                <div className='w-[80%] h-[165px] flex items-center justify-center border-[1px] border-[#d0d0d0] rounded-lg mx-auto'>
+                <div className='w-[80%] h-[165px] my-4 flex items-center justify-center border-[1px] border-[#d0d0d0] rounded-lg mx-auto'>
                     {rule.filter ? 
                         <p className='text-[13px] font-[400] px-2 py-1 text-black rounded-md border-[1px] border-[#d0d0d0]'>{rule.filter}</p>
                         :
@@ -54,11 +54,11 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
                 </div>
             </td>
             {columns.map(column => (
-                <td key={column.key} className=''>
+                <td key={column.key}>
                     <div className='relative w-[160px] h-[165px] p-[10px] my-4 pt-[16px] border-[1px] border-[#d0d0d0] rounded-lg flex flex-col justify-center items-center'>
                         {rule[column.key].imageUrl && rule[column.key].label ? (
                             <>
-                                <img src={rule[column.key].imageUrl} alt={rule[column.key].label} className='w-[110px] h-[110px] object-cover rounded-[5px]' />
+                                <img src={rule[column.key].imageUrl} alt={rule[column.key].label} className='w-[110px] h-[110px] rounded-[5px]' />
                                 <span className='ml-[0px] overflow-hidden overflow-ellipsis whitespace-nowrap w-[100%] text-[14px] font-[500] mt-1 text-center'>{rule[column.key].label}</span>
                                 {showHoverActions && <button className='absolute top-[50px] right-[34.5%] bg-white py-[8px] px-[14px] rounded-[5px] hover:bg-blue-50'><LuPenSquare className='text-black text-[20px]' /></button>}
                             </>

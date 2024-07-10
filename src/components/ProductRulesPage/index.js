@@ -3,13 +3,12 @@ import { useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa6";
 import ProductRuleItem from "../ProductRuleItem";
+import toast from 'react-hot-toast';
 import './style.css';
-
-const imageUrl = 'https://rukminim2.flixcart.com/image/612/612/xif0q/fabric/k/5/n/yes-2-m-unstitched-2-m-2-5-m-md-dm1-149-anand-original-imagsqmgnqkktvnd.jpeg?q=70';
 
 function ProductRulesPage() {
     const [data, setData] = useState([
-        { key: 1, filter: 'John Brown sr.', variant1: { imageUrl: imageUrl, label: "Single image product something" }, variant2: { imageUrl: './image9.webp', label: "image" } },
+        { key: 1, filter: 'John Brown sr.', variant1: { imageUrl: './image10.webp', label: "Single image product something" }, variant2: { imageUrl: './image9.webp', label: "image" } },
         { key: 2, filter: 'Jim Green sr.', variant1: { imageUrl: '/image1.webp', label: "image" }, variant2: { imageUrl: '/image5.webp', label: "image" } },
         { key: 3, filter: 'Joe Black sr.', variant1: { imageUrl: '/image2.webp', label: "image" }, variant2: { imageUrl: '/image6.webp', label: "image" } },
         { key: 4, filter: 'Jim Red sr.', variant1: { imageUrl: '', '/image3.webp': "" }, variant2: { imageUrl: '/image7.webp', label: "image" } },
@@ -33,6 +32,7 @@ function ProductRulesPage() {
             ...item,
             [newColumnKey]: { imageUrl: '', label: '' }
         })));
+        toast.success('Variant added');
     };
 
     const deleteColumn = (columnKey) => {
@@ -58,9 +58,14 @@ function ProductRulesPage() {
                 updatedColumns[i] = { key: `variant${i + 1}`, label: `Variant ${i + 1}` };
             }
 
+            if (updatedColumns.length > 0) {
+                updatedColumns[0].label = 'Primary Variant';
+            }
+
             setColumns(updatedColumns);
             setData(updatedData);
         }
+        toast.success('Variant removed');
     };
 
     const addRow = () => {
@@ -71,10 +76,12 @@ function ProductRulesPage() {
         });
 
         setData([...data, newRow]);
+        toast.success('State added');
     };
 
     const deleteRow = (rowKey) => {
         setData(data.filter(item => item.key !== rowKey));
+        toast.success('State removed!');
     };
 
     const handleAddProductFilter = (productFilter, key) => {
@@ -97,14 +104,14 @@ function ProductRulesPage() {
 
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
-          <div className="table-container">
-            <table className="product-rules-table border-[1px] border-[#d0d0d0] mx-[50px] my-[5%] p-[30px] rounded-xl border-separate border-spacing-0 w-[91%]">
+          {/* <div className="table-container"> */}
+            <table className="border-[1px] border-[#d0d0d0] mx-[50px] my-[4%] p-[30px] rounded-xl border-separate border-spacing-0 w-[91%]">
                 <thead>
                     <tr>
-                        <th className='py-[20px] text-[#6B757E] font-[500]'></th>
-                        <th className='py-[20px] text-[#6B757E] font-[500] w-[400px] text-[14px]'>Product Filter</th>
+                        <th className='py-[20px] text-[#6B757E] font-[500] w-[60px] max-w-[80px]'></th>
+                        <th className='py-[20px] text-[#6B757E] font-[500] w-[400px] max-w-[400px] text-[14px]'>Product Filter</th>
                         {columns.map((column) => (
-                            <th key={column.key} className='py-[20px] text-[#6B757E] font-[500] text-[14px]'>
+                            <th key={column.key} className='py-[20px] text-[#6B757E] w-[210px] max-w-[210px] font-[500] text-[14px]'>
                                 <div className='w-[170px] flex flex-row items-center justify-between' title="Delete Column">
                                     <span>{column.label}</span>
                                     <BsThreeDotsVertical
@@ -150,7 +157,7 @@ function ProductRulesPage() {
                     </tr>
                 </tfoot>
             </table>
-          </div>
+          {/* </div> */}
         </DragDropContext>
     );
 }

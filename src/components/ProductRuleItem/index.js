@@ -20,8 +20,8 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
     };
 
     return (
-        <tr ref={innerRef} {...dp} onMouseOver={() => setShowHoverActions(true)} onMouseOut={() => setShowHoverActions(false)}>
-            <td className='border-r-[1px]' {...dragHandleProps}>
+        <tr className='border-b-[1px]' ref={innerRef} {...dp} onMouseOver={() => setShowHoverActions(true)} onMouseOut={() => setShowHoverActions(false)}>
+            <td className='border-r-[1px] max-w-[80px]' {...dragHandleProps}>
                 <div className='w-[60px] text-[24px] flex flex-col justify-center items-center font-bold relative'>
                     { showHoverActions &&
                         <button className='absolute bg-white border-0 outline-none p-0 bottom-9' onClick={() => deleteRow(rule.key)}>
@@ -34,8 +34,8 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
                     </div>
                 </div>
             </td>
-            <td>
-                <div className='w-[80%] h-[165px] my-4 flex items-center justify-center border-[1px] border-[#d0d0d0] rounded-lg mx-auto'>
+            <td className='w-[400px] max-w-[400px] min-w-[400px] border-r-[1px]'>
+                <div className='w-[345px] max-w-[345px] h-[165px] my-4 flex items-center justify-center border-[1px] border-[#d0d0d0] rounded-lg mx-auto'>
                     {rule.filter ? 
                         <p className='text-[13px] font-[400] px-2 py-1 text-black rounded-md border-[1px] border-[#d0d0d0]'>{rule.filter}</p>
                         :
@@ -54,8 +54,8 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
                 </div>
             </td>
             {columns.map(column => (
-                <td key={column.key}>
-                    <div className='relative w-[160px] h-[165px] p-[10px] my-4 pt-[16px] border-[1px] border-[#d0d0d0] rounded-lg flex flex-col justify-center items-center'>
+                <td key={column.key} className='w-[210px] max-w-[210px] min-w-[210px] border-r-[1px]'>
+                    <div className='relative w-[160px] h-[165px] mx-auto p-[10px] my-4 pt-[16px] border-[1px] border-[#d0d0d0] rounded-lg flex flex-col justify-center items-center'>
                         {rule[column.key].imageUrl && rule[column.key].label ? (
                             <>
                                 <img src={rule[column.key].imageUrl} alt={rule[column.key].label} className='w-[110px] h-[110px] rounded-[5px]' />
@@ -72,7 +72,7 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
                 </td>
             ))}
             <td>
-                <button className='p-[10px] rounded-md border-[1px] border-[#d0d0d0] flex items-center justify-center hover:bg-blue-50' onClick={addColumn}>
+                <button className='p-[10px] rounded-md border-[1px] mx-6 border-[#d0d0d0] flex items-center justify-center hover:bg-blue-50' onClick={addColumn}>
                     <FaPlus className='text-black text-[16px]' />
                 </button>
             </td>

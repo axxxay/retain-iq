@@ -104,15 +104,15 @@ function ProductRulesPage() {
 
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
-          {/* <div className="table-container"> */}
-            <table className="border-[1px] border-[#d0d0d0] mx-[50px] my-[4%] p-[30px] rounded-xl border-separate border-spacing-0 w-[91%]">
+          <div className="overflow-x-auto flex-wrap my-[4%] mx-[50px] w-[91%] scroll-m-0 product-rules-table">
+            <table className="border-[1px] border-[#d0d0d0] p-[30px] rounded-xl border-separate border-spacing-0 w-[100%]">
                 <thead>
                     <tr>
-                        <th className='py-[20px] text-[#6B757E] font-[500] w-[60px] max-w-[80px]'></th>
+                        <th className='py-[20px] text-[#6B757E] font-[500] w-[80px] max-w-[80px]'></th>
                         <th className='py-[20px] text-[#6B757E] font-[500] w-[400px] max-w-[400px] text-[14px]'>Product Filter</th>
                         {columns.map((column) => (
                             <th key={column.key} className='py-[20px] text-[#6B757E] w-[210px] max-w-[210px] font-[500] text-[14px]'>
-                                <div className='w-[170px] flex flex-row items-center justify-between' title="Delete Column">
+                                <div className='w-[170px] mx-auto flex flex-row items-center justify-between' title="Delete Column">
                                     <span>{column.label}</span>
                                     <BsThreeDotsVertical
                                         className='text-[#6B757E] text-[20px] cursor-pointer w-[25px] p-[2px] h-[25px] rounded-[50%] hover:bg-[#c3c8cc]'
@@ -149,7 +149,7 @@ function ProductRulesPage() {
                 </Droppable>
                 <tfoot>
                     <tr>
-                        <td>
+                        <td className="border-r-[1px]">
                             <button className='p-[10px] rounded-md border-[1px] border-[#d0d0d0] flex items-center justify-center hover:bg-blue-50 ml-3' onClick={addRow}>
                                 <FaPlus className='text-black text-[16px]' />
                             </button>
@@ -157,7 +157,7 @@ function ProductRulesPage() {
                     </tr>
                 </tfoot>
             </table>
-          {/* </div> */}
+          </div>
         </DragDropContext>
     );
 }

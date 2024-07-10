@@ -8,11 +8,11 @@ import './style.css';
 
 function ProductRulesPage() {
     const [data, setData] = useState([
-        { key: 1, filter: 'John Brown sr.', variant1: { imageUrl: './image10.webp', label: "Single image product something" }, variant2: { imageUrl: './image9.webp', label: "image" } },
-        { key: 2, filter: 'Jim Green sr.', variant1: { imageUrl: '/image1.webp', label: "image" }, variant2: { imageUrl: '/image5.webp', label: "image" } },
-        { key: 3, filter: 'Joe Black sr.', variant1: { imageUrl: '/image2.webp', label: "image" }, variant2: { imageUrl: '/image6.webp', label: "image" } },
-        { key: 4, filter: 'Jim Red sr.', variant1: { imageUrl: '', '/image3.webp': "" }, variant2: { imageUrl: '/image7.webp', label: "image" } },
-        { key: 5, filter: 'Jake White sr.', variant1: { imageUrl: '/image4.webp', label: "image" }, variant2: { imageUrl: './image8.webp', label: "image" } },
+        { key: 1, filter: 'AND Discount Percentage', variant1: { imageUrl: './image10.webp', label: "Single image product" }, variant2: { imageUrl: './image9.webp', label: "Single image product" } },
+        { key: 2, filter: 'is empty', variant1: { imageUrl: '/image1.webp', label: "Multi image products" }, variant2: { imageUrl: '/image5.webp', label: "Single image product" } },
+        { key: 3, filter: 'contains', variant1: { imageUrl: '/image2.webp', label: "4 images - new arrival" }, variant2: { imageUrl: '/image6.webp', label: "Multi image - on sale" } },
+        { key: 4, filter: 'image_list.Product Image 2', variant1: { imageUrl: '', label: "Single image product" }, variant2: { imageUrl: '/image7.webp', label: "Multi image - new arrival" } },
+        { key: 5, filter: 'Discount Percentage', variant1: { imageUrl: '/image4.webp', label: "4 images - on sale" }, variant2: { imageUrl: './image8.webp', label: "4 images - new arrival" } },
     ]);
 
     const [columns, setColumns] = useState([

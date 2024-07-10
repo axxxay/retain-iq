@@ -59,7 +59,7 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
                         {rule[column.key].imageUrl && rule[column.key].label ? (
                             <>
                                 <img src={rule[column.key].imageUrl} alt={rule[column.key].label} className='w-[110px] h-[110px] rounded-[5px]' />
-                                <span className='ml-[0px] overflow-hidden overflow-ellipsis whitespace-nowrap w-[100%] text-[14px] font-[500] mt-1 text-center'>{rule[column.key].label}</span>
+                                <span className='ml-[0px] overflow-hidden overflow-ellipsis whitespace-nowrap w-[100%] text-[13px] font-[500] mt-1 text-center'>{rule[column.key].label}</span>
                                 {showHoverActions && <button className='absolute top-[50px] right-[34.5%] bg-white py-[8px] px-[14px] rounded-[5px] hover:bg-blue-50'><LuPenSquare className='text-black text-[20px]' /></button>}
                             </>
                         ) : (

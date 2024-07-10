@@ -126,14 +126,14 @@ function ProductRulesPage() {
 
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
-          <div className="overflow-x-auto flex-wrap my-[6%] md:my-[4%] mx-[5%] w-[90%] scroll-m-0 product-rules-table">
+          <div className="overflow-x-auto flex-wrap my-[6%] md:my-[4%] mx-[3%] w-[94%] md:mx-[5%] md:w-[90%] scroll-m-0 product-rules-table">
             <table className="border-[1px] border-[#d0d0d0] p-[15px] md:p-[30px] rounded-xl border-separate border-spacing-0 w-[100%]">
                 <thead>
                     <tr>
                         <th className='py-[10px] md:py-[20px] text-[#6B757E] font-[500] w-[40px] max-w-[40px] md:w-[80px] md:max-w-[80px]'></th>
-                        <th className='py-[10px] md:py-[20px] text-[#6B757E] font-[500] w-[200px] md:w-[400px] max-w-[200px] md:max-w-[400px] text-[13px] md:text-[14px]'>Product Filter</th>
+                        <th className='py-[10px] md:py-[20px] text-[#6B757E] font-[500] w-[200px] md:w-[400px] max-w-[200px] md:max-w-[400px] text-[13px] md:text-[14px] border-r-[1px]'>Product Filter</th>
                         {columns.map((column) => (
-                            <th key={column.key} className='py-[10px] md:py-[20px] text-[#6B757E] w-[110px] md:w-[210px] max-w-[110px] md:max-w-[210px] font-[500] text-[13px] md:text-[14px]'>
+                            <th key={column.key} className='py-[10px] md:py-[20px] text-[#6B757E] w-[110px] md:w-[210px] max-w-[110px] md:max-w-[210px] font-[500] text-[13px] md:text-[14px] border-r-[1px]'>
                                 <div className='w-[90px] md:w-[170px] mx-auto flex flex-row items-center justify-between' title="Delete Column">
                                     <span>{column.label}</span>
                                     <BsThreeDotsVertical

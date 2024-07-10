@@ -30,7 +30,7 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
                     }
                     <div className='flex flex-row items-center'>
                         <span className='text-[20px] md:text-[24px] font-bold'>{index+1}</span>
-                        <CgMenuGridO className='text-[19px] md:text-[23px] mt-[4px]' />
+                        <CgMenuGridO className='text-[19px] md:text-[23px] mt-[2px] md:mt-[4px]' />
                     </div>
                 </div>
             </td>

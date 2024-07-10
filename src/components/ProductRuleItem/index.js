@@ -4,7 +4,7 @@ import { LuPenSquare } from "react-icons/lu";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa6";
 
-const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, addColumn, deleteRow, handleAddProductFilter }) => {
+const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, addColumn, deleteRow, handleAddProductFilter, handlePopupOpen }) => {
     const [showHoverActions, setShowHoverActions] = useState(false);
     const [productFilter, setProductFilter] = useState('');
     const [showFilterInput, setShowFilterInput] = useState(false);
@@ -60,10 +60,10 @@ const ProductRuleItem = ({ innerRef, dp, dragHandleProps, rule, index, columns, 
                             <>
                                 <img src={rule[column.key].imageUrl} alt={rule[column.key].label} className='w-[110px] h-[110px] rounded-[5px]' />
                                 <span className='ml-[0px] overflow-hidden overflow-ellipsis whitespace-nowrap w-[100%] text-[13px] font-[500] mt-1 text-center'>{rule[column.key].label}</span>
-                                {showHoverActions && <button className='absolute top-[50px] right-[34.5%] bg-white py-[8px] px-[14px] rounded-[5px] hover:bg-blue-50'><LuPenSquare className='text-black text-[20px]' /></button>}
+                                {showHoverActions && <button className='absolute top-[50px] right-[34.5%] bg-white py-[8px] px-[14px] rounded-[5px] hover:bg-blue-50' onClick={() => handlePopupOpen(rule, column)}><LuPenSquare className='text-black text-[20px]' /></button>}
                             </>
                         ) : (
-                            <button className='py-2 px-4 rounded-md border-[1px] border-[#d0d0d0] flex items-center justify-center hover:bg-blue-50'>
+                            <button className='py-2 px-4 rounded-md border-[1px] border-[#d0d0d0] flex items-center justify-center hover:bg-blue-50' onClick={() => handlePopupOpen(rule, column)}>
                                 <FaPlus className='text-black text-[16px] mr-2' />
                                 <span className='text-[14px] text-black font-[500]'>Add design</span>
                             </button>

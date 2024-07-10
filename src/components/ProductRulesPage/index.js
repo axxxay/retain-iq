@@ -2,9 +2,11 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa6";
-import ProductRuleItem from "../ProductRuleItem";
 import toast from 'react-hot-toast';
+import ProductRuleItem from "../ProductRuleItem";
+import { ProductVariantPopup } from "../ProductVariantPopup";
 import './style.css';
+
 
 function ProductRulesPage() {
     const [data, setData] = useState([
@@ -19,6 +21,27 @@ function ProductRulesPage() {
         { key: 'variant1', label: 'Primary Variant' },
         { key: 'variant2', label: 'Variant 2' }
     ]);
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [selectedRow, setSelectedRow] = useState(null);
+    const [selectedColumn, setSelectedColumn] = useState(null);
+
+    const handlePopupOpen = (row, variant) => {
+        setSelectedRow(row);
+        setSelectedColumn(variant);
+        setIsPopupOpen(true);
+    };
+
+    const changeVariant = (row, column, image) => {
+        setData(data.map(item => {
+            if (item.key === row.key) {
+                return { ...item, [column.key]: { imageUrl: image.imageUrl, label: image.label } };
+            }
+            return item;
+        }));
+        setIsPopupOpen(false);
+        toast.success('Variant template updated');
+    };
 
     const addColumn = () => {
         const newColumnKey = `variant${columns.length + 1}`;
@@ -98,13 +121,12 @@ function ProductRulesPage() {
         const items = Array.from(data);
         const [reorderedItem] = items.splice(results.source.index, 1);
         items.splice(results.destination.index, 0, reorderedItem);
-
         setData(items);
     };
 
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
-          <div className="overflow-x-auto flex-wrap my-[4%] mx-[50px] w-[91%] scroll-m-0 product-rules-table">
+          <div className="overflow-x-auto flex-wrap my-[4%] mx-[5%] w-[90%] scroll-m-0 product-rules-table">
             <table className="border-[1px] border-[#d0d0d0] p-[30px] rounded-xl border-separate border-spacing-0 w-[100%]">
                 <thead>
                     <tr>
@@ -139,6 +161,9 @@ function ProductRulesPage() {
                                             addColumn={addColumn}
                                             deleteRow={deleteRow}
                                             handleAddProductFilter={handleAddProductFilter}
+                                            setIsPopupOpen={setIsPopupOpen}
+                                            handlePopupOpen={handlePopupOpen}
+                                            selectedColumn={selectedColumn}
                                         />
                                     )}
                                 </Draggable>
@@ -158,6 +183,9 @@ function ProductRulesPage() {
                 </tfoot>
             </table>
           </div>
+          {
+            isPopupOpen && <ProductVariantPopup closePopup={() => setIsPopupOpen(false)} selectedRow={selectedRow} selectedColumn={selectedColumn} changeVariant={changeVariant} />
+          }
         </DragDropContext>
     );
 }
